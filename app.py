@@ -1,21 +1,22 @@
 import gspread
-from google.oauth2.service_account import Credentials
+import json
+import os
 import pandas as pd
 import streamlit as st
-import pandas as pd
-import gspread
 from google.oauth2.service_account import Credentials
-from google.auth.transport.requests import Request
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# Path to your service account JSON file
-SERVICE_ACCOUNT_FILE = r'university-decision-tracker-b8796598f410.json'
+# Retrieve the service account credentials from GitHub Secret
+service_account_json = os.getenv('GOOGLE_CREDENTIALS_JSON')
+
+# Convert the JSON string to a dictionary
+creds_dict = json.loads(service_account_json)
 
 # Define the scope for Google Sheets API
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
-# Authenticate using the service account file
-creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+# Authenticate using the service account dictionary
+creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
 
 # Authorize gspread with the credentials
 gc = gspread.authorize(creds)
