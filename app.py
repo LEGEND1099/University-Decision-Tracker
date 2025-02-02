@@ -6,25 +6,33 @@ import streamlit as st
 from google.oauth2.service_account import Credentials
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# Get the secret values from the environment
-service_account_json = f"""
-{{
-  "type": "{os.getenv('type')}",
-  "project_id": "{os.getenv('project_id')}",
-  "private_key_id": "{os.getenv('private_key_id')}",
-  "private_key": "{os.getenv('private_key')}",
-  "client_email": "{os.getenv('client_email')}",
-  "client_id": "{os.getenv('client_id')}",
-  "auth_uri": "{os.getenv('auth_uri')}",
-  "token_uri": "{os.getenv('token_uri')}",
-  "auth_provider_x509_cert_url": "{os.getenv('auth_provider_x509_cert_url')}",
-  "client_x509_cert_url": "{os.getenv('client_x509_cert_url')}",
-  "universe_domain": "{os.getenv('universe_domain')}"
-}}
-"""
+# Fetch secrets using os.getenv() directly
+type_secret = os.getenv('type')
+project_id = os.getenv('project_id')
+private_key_id = os.getenv('private_key_id')
+private_key = os.getenv('private_key')
+client_email = os.getenv('client_email')
+client_id = os.getenv('client_id')
+auth_uri = os.getenv('auth_uri')
+token_uri = os.getenv('token_uri')
+auth_provider_x509_cert_url = os.getenv('auth_provider_x509_cert_url')
+client_x509_cert_url = os.getenv('client_x509_cert_url')
+universe_domain = os.getenv('universe_domain')
 
-# Now you can load the JSON into a dictionary
-creds_dict = json.loads(service_account_json)
+# Create a dictionary from the secrets
+creds_dict = {
+    "type": type_secret,
+    "project_id": project_id,
+    "private_key_id": private_key_id,
+    "private_key": private_key,
+    "client_email": client_email,
+    "client_id": client_id,
+    "auth_uri": auth_uri,
+    "token_uri": token_uri,
+    "auth_provider_x509_cert_url": auth_provider_x509_cert_url,
+    "client_x509_cert_url": client_x509_cert_url,
+    "universe_domain": universe_domain
+}
 
 # Define the scope for Google Sheets API
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
