@@ -1,32 +1,18 @@
-from google.colab import auth
-auth.authenticate_user()
-
 import gspread
-from google.auth import default
-
-creds, _ = default()
-gc = gspread.authorize(creds)
-
+import json
+from google.oauth2.service_account import Credentials
 import pandas as pd
-
-# Load the Google Sheet
-sheet_id = "16bGYXkbWJXJrzqup1fAPRRWWaNjA5GYMgfVwp9Y5K9c"  # Replace with your Sheet ID
-sh = gc.open_by_key(sheet_id)
-worksheet = sh.get_worksheet(0)  # First sheet
-
-# Convert to DataFrame
-data = worksheet.get_all_records()
-df = pd.DataFrame(data)
-
-# %%writefile app.py
 import streamlit as st
-import pandas as pd
-import gspread
-from google.auth import default
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# Authenticate and connect to Google Sheets
-creds, _ = default()
+# Read the Google service account credentials from Streamlit secrets
+service_account_json = st.secrets["google"]["service_account"]
+
+# Parse the JSON string to a dictionary
+creds_dict = json.loads(service_account_json)
+
+# Authenticate and connect to Google Sheets using service account credentials
+creds = Credentials.from_service_account_info(creds_dict)
 gc = gspread.authorize(creds)
 
 # Load Google Sheet
@@ -91,4 +77,3 @@ st.dataframe(filtered_df, use_container_width=True)
 # Footer
 st.markdown("---")
 st.markdown("🚀 **Be a part of this free initiative!** Submit your decision: [📋 Submit Here](https://forms.gle/XKziTqc26pj5GeUE9) ❤️")
-
