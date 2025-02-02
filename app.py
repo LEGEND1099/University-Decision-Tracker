@@ -6,8 +6,15 @@ import streamlit as st
 from google.oauth2.service_account import Credentials
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# Retrieve the service account credentials from GitHub Secret
-service_account_json = os.getenv('GOOGLE_CREDENTIALS_JSON')
+# Embed the service account credentials directly for testing purposes (remove in production)
+service_account_json = '''
+{
+  "type": "service_account",
+  "project_id": "university-decision-tracker",
+  "private_key_id": "069c89895833a78cfaa737c6637d35657d6437a1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDP96er3RnzwTdq\\nm0pxK+nGA8SqTXLfnovaAXpT+LwyMKVngX0Bc6u65oV2hWktE9MCRNnvNwe4A9T4\\nwovZe2NGbf06q/RX1xT6+DKN2CNlu8VyECO9CRVQVd/6CnrsOR/w5LANibdbRP7+\\nMTkkEpRd/JqtcEVu1oKPfXz7chEY7a3zwsoAzzHqDLWhjILpeq3jbIndjO232Lsq\\nBvn+cKnDrvrgCL4V1uAj5DZbkGkbLHbuhbKaMsZhxnLmcFiuoDn6wD8N0p1LwGbo\\ndsXeg6a8TNurCdtI8ayj/92ZzBqZ3Ci4As6XOm+9/KxtB0ABo9v49L0gvkAxp9JZ\\ngwkyrEPzAgMBAAECggEAG44hYcS4eRMrUA1GZktevLVoG/aKF3YO6rJSbojhCrdm\\nWxoNoaEdanS7z1Hq9yWOylisFaWReMDNOa6xT/4oz76oFFuPUwo1BfHX5PJz8jlY\\ndn4L9jKbZ9sRA7Tax6zj/guXBhwutsGkFbMY8p4hmXhsWDmtgXubrf5/DmP1PvuV\\ns2nlLCincsPkEho27VtCEdhE+j3y4p3jGZ2KWPDUZv9un9DfA2AjRqLmEj6rrlYo\\n8PBnmHjApIORIndSSmQj8bPj+PIIBgnw2SgVcKx4OpGxQZ0YngzDk8tU4vlzCmIx\\n3CsuonymkXlhjwr/viAiGG7eI1rnvnbuAN85trgirQKBgQD8Kp8nLBFLN5rUXf7f\\nAkguv70wUYNNZLQzdM1e6uRRZvTlG8A2dmtLi9qFyFGZCxYSt19dP+dCYdL0XUOx\\n1ZoNVLP4t7zntWVseeIoVUCVHHfsB7DKUPBc5tJZfYrbo1QZ+/Y5aanaL6IVuKIW\\njKOq9W2VUgGqY9UQ6aIHvNsuTQKBgQDTIQUThXUMygUR1ZhAqtQ7kMFh/jhwTEfA\\n9df62LpetKyYAeJpdMk1UTvNOgcy2qhQsioirZ0DVgPs+LA4AcToa0RuZ/NGtNrP\\n40EfLBMXUCV73wHpvV7aAQvUFXbbaPDqPal5BLmTgOHoC6hmb2rvtgIa0ITc30zt\\nOPLeaKDbPwKBgBdPMUsDrc2QJEXBMpAWu+lmW+ydfE+pIWcoQtulRtmndLfA6vGd\\n3KktElQPgkttVOsB/FS4VX4zYLap8Fn97rGQxNoW0eVxRSDT223zA3dFHGi7BUKO\\nXMmZpJQVIMLQxDNqsQX5mHPMt2Tenk0LTw28hhapb/H6LHXVwt6IPJJ5AoGANYJu\\n6O2wJtekxUpfVjR1qcscWBu4bi3HGc61OKxpP8uG2tfPbG7e+BZok7EbVfY5Joqh\\nRzy9SLUqNYsqDmfUYhudsmXCMK9xrbKpNJ9VD1mOxoBU2crXGWWee9gc0asdNCEA\\nrN1Xs1y85LTfr2aZsbtteSJUKi6mLpF6bIgUDL0CgYB5sUAKcO856nsqDEW7dERR\\nuHM+Ukbaqeh7USdmwlz9Qi+zhsV8ltpiDGulRdxk1bsh/5YnZdXl3ZfsbJB2fnkq\\nXIMivFBQb4xXDhlk1UUicl1o67jfk7MBBPudquWsZ6sev3BYmT//5Vtzt5W5gaSS\\nzNr7CECuLICjuvbHgfnsBQ==
+}
+'''
 
 # Convert the JSON string to a dictionary
 creds_dict = json.loads(service_account_json)
@@ -84,4 +91,4 @@ st.dataframe(filtered_df, use_container_width=True)
 
 # Footer
 st.markdown("---")
-st.markdown("🚀 **Be a part of this free initiative!** Submit your decision: [📋 Submit Here](https://forms.gle/XKziTqc26pj5GeUE9) ❤️")
+st.markdown("🚀 **Be a part of this free initiative!** Submit your decision at [📋 Submit Your Decision](https://forms.gle/XKziTqc26pj5GeUE9)")
