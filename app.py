@@ -1,3 +1,6 @@
+import gspread
+from google.oauth2.service_account import Credentials
+import pandas as pd
 import streamlit as st
 import pandas as pd
 import gspread
@@ -5,44 +8,27 @@ from google.oauth2.service_account import Credentials
 from google.auth.transport.requests import Request
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# JSON credentials as a string
-service_account_json = '''{
-  "type": "service_account",
-  "project_id": "your-project-id",
-  "private_key_id": "your-private-key-id",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...<rest of your private key>",
-  "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
-  "client_id": "your-client-id",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
-}'''
+# Path to your service account JSON file
+SERVICE_ACCOUNT_FILE = r'C:\Users\user\Desktop\University Decision Tracker\university-decision-tracker-b8796598f410.json'
 
-# Convert the JSON string to a dictionary
-import json
-credentials_dict = json.loads(service_account_json)
-
-# Define required scopes for Sheets API access
+# Define the scope for Google Sheets API
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
-# Load credentials from the dictionary
-creds = Credentials.from_service_account_info(credentials_dict, scopes=SCOPES)
-
-# Check if credentials need to be refreshed
-if creds and creds.expired and creds.refresh_token:
-    creds.refresh(Request())  # Refresh credentials if expired
+# Authenticate using the service account file
+creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 # Authorize gspread with the credentials
 gc = gspread.authorize(creds)
 
-# Load Google Sheet
+# Open the Google Sheet by its ID (replace with your actual sheet ID)
 sheet_id = "16bGYXkbWJXJrzqup1fAPRRWWaNjA5GYMgfVwp9Y5K9c"  # Replace with your actual Sheet ID
 sh = gc.open_by_key(sheet_id)
-worksheet = sh.get_worksheet(0)  # First sheet
-data = worksheet.get_all_records()
 
-# Convert to DataFrame
+# Select the first sheet (you can change this to any sheet you want to access)
+worksheet = sh.get_worksheet(0)
+
+# Fetch all records and load them into a pandas DataFrame
+data = worksheet.get_all_records()
 df = pd.DataFrame(data)
 
 # Hide "Timestamp" and "Email" columns
