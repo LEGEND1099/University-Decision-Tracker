@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
 # Path to your service account JSON file
-SERVICE_ACCOUNT_FILE = r'C:\Users\user\Desktop\University Decision Tracker\university-decision-tracker-b8796598f410.json'
+SERVICE_ACCOUNT_FILE = r'university-decision-tracker-b8796598f410.json'
 
 # Define the scope for Google Sheets API
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
