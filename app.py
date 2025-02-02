@@ -9,7 +9,7 @@ from streamlit_extras.dataframe_explorer import dataframe_explorer
 import os
 
 # Get the secret from the environment
-my_secret = os.getenv('GOOGLE_CREDENTIALS_JSON')
+my_secret = os.getenv('key')
 
 st.title(my_secret)
 
