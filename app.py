@@ -68,6 +68,9 @@ for col in date_columns:
 if "CGPA" in df.columns:
     df["CGPA"] = df["CGPA"].astype(str)  # Convert CGPA to string to prevent timestamp issues
 
+if "English Proficiency Score" in df.columns:
+    df["English Proficiency Score"] = df["English Proficiency Score"].astype(str)  # Ensure it stays as a string
+
 # Streamlit UI
 st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="📚", layout="wide")
 
