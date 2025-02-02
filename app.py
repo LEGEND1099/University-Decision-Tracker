@@ -18,7 +18,7 @@ worksheet = sh.get_worksheet(0)  # First sheet
 data = worksheet.get_all_records()
 df = pd.DataFrame(data)
 
-%%writefile app.py
+# %%writefile app.py
 import streamlit as st
 import pandas as pd
 import gspread
