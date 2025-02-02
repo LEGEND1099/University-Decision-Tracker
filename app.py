@@ -7,7 +7,7 @@ from google.oauth2.service_account import Credentials
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
 # Embed the service account credentials directly for testing purposes (remove in production)
-service_account_json = '''
+service_account_json = """
 {
   "type": "service_account",
   "project_id": "university-decision-tracker",
@@ -21,9 +21,10 @@ service_account_json = '''
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets-access-service-account%40university-decision-tracker.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
-'''
+"""
 
-# Convert the JSON string to a dictionary
+# Now you can load the JSON into a dictionary
+import json
 creds_dict = json.loads(service_account_json)
 
 # Define the scope for Google Sheets API
