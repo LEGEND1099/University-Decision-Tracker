@@ -6,33 +6,25 @@ import streamlit as st
 from google.oauth2.service_account import Credentials
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-# Fetch secrets using os.getenv() directly
-type_secret = os.getenv('type')
-project_id = os.getenv('project_id')
-private_key_id = os.getenv('private_key_id')
-private_key = os.getenv('private_key')
-client_email = os.getenv('client_email')
-client_id = os.getenv('client_id')
-auth_uri = os.getenv('auth_uri')
-token_uri = os.getenv('token_uri')
-auth_provider_x509_cert_url = os.getenv('auth_provider_x509_cert_url')
-client_x509_cert_url = os.getenv('client_x509_cert_url')
-universe_domain = os.getenv('universe_domain')
+# Get the secret from the environment variables (the keys should be set in Streamlit secrets)
+service_account_json = f"""
+{{
+  "type": "{os.getenv('type')}",
+  "project_id": "{os.getenv('project_id')}",
+  "private_key_id": "{os.getenv('private_key_id')}",
+  "private_key": "{os.getenv('private_key')}",
+  "client_email": "{os.getenv('client_email')}",
+  "client_id": "{os.getenv('client_id')}",
+  "auth_uri": "{os.getenv('auth_uri')}",
+  "token_uri": "{os.getenv('token_uri')}",
+  "auth_provider_x509_cert_url": "{os.getenv('auth_provider_x509_cert_url')}",
+  "client_x509_cert_url": "{os.getenv('client_x509_cert_url')}",
+  "universe_domain": "{os.getenv('universe_domain')}"
+}}
+"""
 
-# Create a dictionary from the secrets
-creds_dict = {
-    "type": type_secret,
-    "project_id": project_id,
-    "private_key_id": private_key_id,
-    "private_key": private_key,
-    "client_email": client_email,
-    "client_id": client_id,
-    "auth_uri": auth_uri,
-    "token_uri": token_uri,
-    "auth_provider_x509_cert_url": auth_provider_x509_cert_url,
-    "client_x509_cert_url": client_x509_cert_url,
-    "universe_domain": universe_domain
-}
+# Load the JSON into a dictionary
+creds_dict = json.loads(service_account_json)
 
 # Define the scope for Google Sheets API
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
@@ -64,9 +56,12 @@ for col in date_columns:
     if col in df.columns:
         df[col] = pd.to_datetime(df[col], errors="coerce").dt.strftime("%Y-%m-%d")  # Only date
 
-# Ensure "CGPA" is treated as a number/text, not a timestamp
+# Ensure "CGPA" and "English Proficiency" columns are treated as text, not a timestamp
 if "CGPA" in df.columns:
     df["CGPA"] = df["CGPA"].astype(str)  # Convert CGPA to string to prevent timestamp issues
+
+if "English Proficiency Score" in df.columns:
+    df["English Proficiency Score"] = df["English Proficiency Score"].astype(str)  # Ensure it stays as a string
 
 # Streamlit UI
 st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="📚", layout="wide")
