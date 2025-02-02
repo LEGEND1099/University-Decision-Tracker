@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "university-decision-tracker",
+  "private_key_id": "b8796598f410bde3a370c6d72531e145dcf7d06c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIOJ8K5frYCPva\nFl2yp/Pr6S0zel6K0R3wE6Xu0+A4p8PFHerjqcj3ic7h69rkZws5R4g7uw8McPZg\nM/ZGv2c5jEmxY2J4qhviEOIVK4jhDYyfLxhIkJmowK1v1SO+oc3ph6w6tX1cTog2\nDHikyLFU53pJyirVr2Vl4Q1l2RmJeTpWcVQ8vDyoDv5LQb4JLxhc9/hRDaJ8wHYm\n6oLsOjjWRRQJU41JbaFrbd3WwwilL1N8HyjA9b2yESKbdIaH23KJ9VQYjJIlN0v8\nX7Y7gAhzdCEH/82iL5/bB/a39Oc3EWYX1VpVM325JUZiKlxwIj+txrhHfZUpTcwz\nQVURzl+VAgMBAAECggEANyEIAZszR1qp5fG0mOWPzwwkKwFtmLFdmeX/EVR7b34Z\n9GN5cngkYqwqL6CeY7dPqtTcWP33dciAvhpwnChFht3uyI4B5hGIneViKswS40y0\nxHvWJtzRwlpTJvC759hrdvqpXHzuaIUjEia67TxpP2SBEmI9CxtBQx0FcF6nnmcq\nOA1Vl4EoB6CAwalg8s/erGP2siNw+3GTmcAJdksqnpMqW2zf+UaO9arPe8jhBGty\nEAMhv9aFaftALXqMWbmn0zlmPDhF+ZkraAKc/nQSv1HPg7/OOCj+U5/iiqWPKVpK\nGr0gRUsTXVpCkDZFlrO/XhTEttP30FJR8z1dA1/UXQKBgQD+YMHvcZpuo/WHH2wA\nxg+tuMM21qzRTmfiYW/y9T0Xmp8dYPl1SgmUnTBQJUuWhjHKOvh5YkpVZOGYWrZH\nD7QRnWG7doURG4T+yRBcDoXMSlvxcImgQNMoKwsZBwK1/hpwKmpzQohUndlNmddX\niItcD4OGc1o6pDFR5Kx6Bb5vowKBgQDJf3WETfdD6TjiPICf0mz7nLh6g7Jq6QzK\nfC5R2boOWqY/inFlnHkkc6WnXOFII2G3Vzy0zcMfxY0HTH5hrxW49GPoc/jNxp6U\n9/sN8wYMuod4GzzkP4IyiE3tPxwwExunwgufzpE3xQhNW3Uc3c9Z93BBMtp3laMM\nqezwCHYHZwKBgQDOSnF8WUjAST8ooZbY2caFP70wj8/+vfMJZ7N9+NvedIptLOOg\n9rXmS8OOe3BdVd6y/jfbWJanwfQhtg70egux7UwA1xD62rJ0XWJjBXQERJljp7w0\ntd2ISb/qQAE2zidqpztE1cPxu0Eq6YP1fMpnkj07n/igbd+BZk1pd5cEuQKBgDDl\nFAAx5yF8k4gahF/D8RwxUHayRHY67RapgZftDH/1MUhT8OZmTOMyiO0O1b/qjgiu\nS5XYJFQuXOV7g2Ny2AOUkjXTBnnwi4S8lBgzc7FdBgh4G5OLca2Pc9FxMgbcbCaO\nKMHznzt4PWaAHfAORwWezIeVrnu8PN+S0GMCuplbAoGBAJhLVHAIZeIMlkgKb4MW\nGQv+XZ3bYNmLEy1VnyNP23vYTGmwM44XsgcWTZeIZ+v21CyihJCw0BPd4Il2fsLZ\n01R9MhdwN+hhu5DhVz03iR/644VVRiNgs9hPyGcLpCEgEn4R4pLqu1nrUMJzESbT\nc52wYdPQZD9pgUnLMzCi36jx\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets-access-service-account@university-decision-tracker.iam.gserviceaccount.com",
+  "client_id": "100595815732394570343",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets-access-service-account%40university-decision-tracker.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
