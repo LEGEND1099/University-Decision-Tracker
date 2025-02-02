@@ -11,7 +11,7 @@ import os
 # Get the secret from the environment
 my_secret = os.getenv('GOOGLE_CREDENTIALS_JSON')
 
-st.tltle(my_secret)
+st.title(my_secret)
 
 
 # # Embed the service account credentials directly for testing purposes (remove in production)
