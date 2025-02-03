@@ -77,10 +77,10 @@ st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="�
 # Title & Description
 st.title("🎓 University Decision Tracker 📊")
 st.markdown("""
-🚀 **Your Ultimate University Decision Tracker!** 🚀  
-💡 Tired of expensive decision-tracking tools? This **100% free** alternative lets you track where students are getting admitted—**without spending a dime!** 💰❌  
-🌍 See which universities are accepting students, filter by country, and check real-time trends! 📊  
-🎯 **Want to contribute?** Submit your decision here: [📋 Submit Your Decision](https://forms.gle/XKziTqc26pj5GeUE9)  
+🚀 Track Uni Decisions, No Fuss! 🚀
+💡 A 100% free way to see where students are getting in—no paywalls, no nonsense.
+🌍 Filter by country, check real-time trends, and stay ahead! 📊
+🎯 Got an update? Share yours here: [📋 Submit Your Decision](https://forms.gle/XKziTqc26pj5GeUE9) 
 """)
 
 st.markdown("---")
@@ -117,4 +117,4 @@ st.html("""
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3535666961610166"
      crossorigin="anonymous"></script>
 """)
-st.markdown("Add placed")
+# st.markdown("Add placed")
