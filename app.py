@@ -68,8 +68,12 @@ for col in date_columns:
 if "CGPA" in df.columns:
     df["CGPA"] = df["CGPA"].astype(str)  # Convert CGPA to string to prevent timestamp issues
 
+if "Years of Experience" in df.columns:
+    df["Years of Experience"] = df["Years of Experience"].astype(str)  # Ensure it stays as a string
+
 if "English Proficiency Score" in df.columns:
     df["English Proficiency Score"] = df["English Proficiency Score"].astype(str)  # Ensure it stays as a string
+
 
 # Streamlit UI
 st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="📚", layout="wide")
@@ -77,11 +81,11 @@ st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="�
 # Title & Description
 st.title("🎓 University Decision Tracker 📊")
 st.markdown("""
-🚀 Track Uni Decisions, No Fuss! 🚀
-💡 A 100% free way to see where students are getting in—no paywalls, no nonsense.
-🌍 Filter by country, check real-time trends, and stay ahead! 📊
-🎯 Got an update? Share yours here: [📋 Submit Your Decision](https://forms.gle/XKziTqc26pj5GeUE9) 
-""")
+🚀 **Track University Decisions, No Fuss!** 🚀  
+💡 A **100% free** way to see where students are getting in—no paywalls, no hassle.  
+🌍 Filter by country, track real-time trends, and stay ahead! 📊  
+🎯 **Got an update?** Share yours here: [📋 Submit Your Decision](https://forms.gle/XKziTqc26pj5GeUE9)  
+""")  
 
 st.markdown("---")
 
