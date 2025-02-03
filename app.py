@@ -5,7 +5,6 @@ import pandas as pd
 import streamlit as st
 from google.oauth2.service_account import Credentials
 from streamlit_extras.dataframe_explorer import dataframe_explorer
-from streamlit_javascript import st_javascript
 
 # Fetch secrets using os.getenv() directly
 type_secret = os.getenv('type')
@@ -114,13 +113,8 @@ st.markdown("🚀 **Be a part of this free initiative!** Submit your decision at
 
 
 # AdSense Integration
-st_javascript("""
-    (function() {
-        var script = document.createElement("script");
-        script.async = true;
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3535666961610166";
-        script.crossOrigin = "anonymous";
-        document.head.appendChild(script);
-    })();
+st.html("""
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3535666961610166"
+     crossorigin="anonymous"></script>
 """)
 st.markdown("Add placed")
