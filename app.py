@@ -74,6 +74,8 @@ if "Years of Experience" in df.columns:
 if "English Proficiency Score" in df.columns:
     df["English Proficiency Score"] = df["English Proficiency Score"].astype(str)  # Ensure it stays as a string
 
+if "Publications" in df.columns:
+    df["Publications"] = df["Publications"].astype(str)  # Ensure it stays as a string
 
 # Streamlit UI
 st.set_page_config(page_title="🎓 University Decision Tracker", page_icon="📚", layout="wide")
